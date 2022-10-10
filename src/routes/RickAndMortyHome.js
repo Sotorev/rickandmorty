@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ReactPlayer from "react-player";
 const RMStyled = styled.div`
 	.bg-container{
+		z-index: -1;
 		position: relative;
 		background-size: 100%;
 		background-repeat: no-repeat;

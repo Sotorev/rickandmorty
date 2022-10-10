@@ -1,15 +1,18 @@
 import styled from "styled-components";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGenderless, faMars, faQuestion, faVenus } from "@fortawesome/free-solid-svg-icons";
 
 const StyledCharacter = styled.div`
+	
 	font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
 	background-color: rgb(32, 35, 41);
 	border-radius: 2rem;
-	width: 40vw;
-	height: 15vw;
+	width: 600px;
+	height: 200px;
 	display: flex;
 	align-items: center;
-	/* justify-content: center; */
 	overflow: hidden;
+	
 	.image-container{
 		width: 40%;
 		img{
@@ -26,7 +29,7 @@ const StyledCharacter = styled.div`
 		padding-left: 2rem;
 		h2{
 			margin: 0;
-			font-size: clamp(1rem, 3vw, 3rem);;
+			font-size: 3rem;
 			color: white;
 			a{
 				cursor: pointer;
@@ -38,47 +41,94 @@ const StyledCharacter = styled.div`
 		.status{
 			display: flex;
 			color: white;
-			font-size: clamp(.2rem, 1.5vw, 2rem);
+			font-size: 2rem;
 			align-items: center;
 			&::before{
 				content:"";
-				background-color: aqua;
+				background-color: ${
+					props => {
+						if (props.status == "Alive") return "greenyellow"
+						else if (props.status == "Dead") return "red"
+						else return "orange"
+					}
+				};
+
 				height: .75rem;
 				width: .75rem;
 				margin-right: .5rem;
 				border-radius: 100%;
 			}
+			svg{
+				margin-left: 1rem;
+			}
+
 		}
 		.sub-title{
-			font-size: clamp(.2rem, 1.5vw, 2rem);
+			font-size: 2rem;
 			color: grey;
 		}
 		.location{
 			color: white;
-			font-size: clamp(.2rem, 1.5vw, 2rem);
+			font-size: 2rem;
 		}
 	}
-	
+	@media screen and (max-width: 1254px) {
+		margin: 2rem 0;
+	}
+	@media screen and (max-width: 600px){
+		/* display: block; */
+		flex-direction: column;
+		width: 80%;
+		height: 550px;
+		justify-content: space-between;
+		align-items: center;
+		.image-container{
+			display: flex;
+			align-items: center;
+			width: 100%;
+			height: 60%;
+			overflow: hidden;
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.description-container{
+			width: 100%;
+			height: 40%;
+		}
+	}
 
 `
 
 const Character = (props) => {
+	let icon;
+	if (props.gender == "Male") icon = <FontAwesomeIcon icon={faMars} />
+	else if (props.gender == "Female") icon = <FontAwesomeIcon icon={faVenus} />
+	else if (props.gender == "Genderless") icon = <FontAwesomeIcon icon={faGenderless} />
+	else icon = <FontAwesomeIcon icon={faQuestion} />
 	return (
-		<StyledCharacter>
+		<StyledCharacter status={props.status}>
 			<div className="image-container">
 				<img src={props.image} />
 			</div>
 			<div className="description-container">
 				<div>
 					<h2><a>{`${props.name}`}</a></h2>
-					<span className="status">{`${props.status} - ${props.species} - ${props.gender}`}</span>
+					<span className="status">
+						{
+							`${props.status} - ${props.species} - `
+						}
+						{icon}
+					</span>
 				</div>
 				<div>
 					<span className="sub-title">Last known location:</span>
-					<br/>
+					<br />
 					<span className="location">{props.location.name}</span>
 				</div>
-				
+
 			</div>
 		</StyledCharacter>
 	)

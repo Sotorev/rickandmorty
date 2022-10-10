@@ -5,7 +5,8 @@ import Characters, {loader as charactersLoader} from './routes/Characters';
 import Locations from './routes/Locations';
 import RM from './routes/RickAndMortyHome'
 import App, {loader as rootLoader} from './routes/App';
-import {createBrowserRouter, RouterProvider, Route} from 'react-router-dom'
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import Episodes, {episodesLoader} from './components/Episodes';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
     loader: rootLoader,
     children: [
       {
-        path: "characters/",
+        path: "characters/:page",
         element: <Characters />,
         loader: charactersLoader,
       },
@@ -23,8 +24,13 @@ const router = createBrowserRouter([
         element: <Locations/>
       },
       {
-        path: "/",
+        index: true,
         element: <RM/>
+      },
+      {
+        path: "episodes/",
+        element: <Episodes />,
+        loader: episodesLoader,
       }
     ]
   },
