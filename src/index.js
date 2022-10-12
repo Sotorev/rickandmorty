@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     loader: rootLoader,
     children: [
       {
-        path: "characters/:page",
+        path: "characters/",
         element: <Characters />,
         loader: charactersLoader,
       },

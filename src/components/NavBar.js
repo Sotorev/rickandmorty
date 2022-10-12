@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const NavBarStyled = styled.div`
+	z-index: 1;
+
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -34,11 +36,10 @@ const NavBarStyled = styled.div`
 			display: none;
 		}
 	@media screen and (max-width: 600px) {
+		position: fixed;
 		background-color: black;
 		.mobile-menu{
-			z-index: 3;
 			cursor: pointer;
-			
 			position: fixed;
 			top: 15px;
 			right: 15px;
@@ -65,8 +66,8 @@ const NavBarStyled = styled.div`
 			}
 		}
 		.mobile-menu-active{
-			z-index: 3;
 			cursor: pointer;
+			z-index: 2;
 			position: fixed;
 			top: 15px;
 			right: 15px;
@@ -173,7 +174,7 @@ const NavBar = () => {
 						</StyledLink>
 					</li>
 					<li>
-						<StyledLink onClick={() => setIsActiveMenu(false)} color={isActiveMobileMenu ? "white" : "black"} to={"characters/1"}>
+						<StyledLink onClick={() => setIsActiveMenu(false)} color={isActiveMobileMenu ? "white" : "black"} to={"characters?page=1"}>
 							Characters
 						</StyledLink>
 					</li>

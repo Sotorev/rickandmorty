@@ -20,22 +20,15 @@ export const StyledEpisodes = styled.div`
 
 const Episodes = () => {
 	let [searchParams, setSearchParams] = useSearchParams();
-	function handleSubmit(event) {
-		event.preventDefault();
-		// The serialize function here would be responsible for
-		// creating an object of { key: value } pairs from the
-		// fields in the form that make up the query.
-		console.log(event.target)
-	}
+
+
 	return (
 		<StyledEpisodes>
-			{/* <Link>Previus Page</Link>
+			<button onClick={() => setSearchParams({ page: 2 })}>Previus Page</button>
 			<br/>
-			<Link>Next Page</Link> */}
-			
-			<form onSubmit={handleSubmit}>
-					<input></input>
-			</form>
+			<Link>Next Page</Link>
+			{/* <h1>{searchParams}</h1> */}
+
 			
 		</StyledEpisodes>
 		
