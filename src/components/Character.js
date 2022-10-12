@@ -5,7 +5,7 @@ import { faGenderless, faMars, faQuestion, faVenus } from "@fortawesome/free-sol
 const StyledCharacter = styled.div`
 	
 	font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
-	background-color: rgb(32, 35, 41);
+	background-color: #3c3e44;
 	border-radius: 2rem;
 	width: 600px;
 	height: 200px;

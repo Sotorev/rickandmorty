@@ -14,6 +14,8 @@ export async function loader({ params, request }) {
 }
 
 const StyledCharacters = styled.div`
+	background-color: hsl(220, 12.3%, 14.3%);
+
 	@media screen and (max-width: 1254px) {
 		padding-top: 10rem;
 		.characters-container{
@@ -43,7 +45,11 @@ const StyledCharacters = styled.div`
 	}
 
 `
-const StyledButton = styled('button')`
+export const StyledButton = styled('button')`
+	&:hover{
+		cursor: pointer;
+		background-color: rgb(255,152,0);
+	}
 	background-color: greenyellow;
 	border: none;
 	width: 50px;

@@ -179,13 +179,8 @@ const NavBar = () => {
 						</StyledLink>
 					</li>
 					<li>
-						<StyledLink onClick={() => setIsActiveMenu(false)} color={isActiveMobileMenu ? "white" : "black"} to={"episodes"} >
+						<StyledLink onClick={() => setIsActiveMenu(false)} color={isActiveMobileMenu ? "white" : "black"} to={"episodes?page=1"} >
 							Episodes
-						</StyledLink>
-					</li>
-					<li>
-						<StyledLink onClick={() => setIsActiveMenu(false)} color={isActiveMobileMenu ? "white" : "black"} to={"locations"}>
-							Locations
 						</StyledLink>
 					</li>
 				</ul>

@@ -20,10 +20,6 @@ const router = createBrowserRouter([
         loader: charactersLoader,
       },
       {
-        path: "locations/",
-        element: <Locations/>
-      },
-      {
         index: true,
         element: <RM/>
       },

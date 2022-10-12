@@ -13,8 +13,8 @@ export async function getLocations(query) {
 	const locations = (await response.json())
 	return locations;
 }
-export async function getEpisodes(query) {
-	const response = await fetch(`https://rickandmortyapi.com/api/episode`);
+export async function getEpisodes(page) {
+	const response = await fetch(`https://rickandmortyapi.com/api/episode?page=${page}`);
 	const episodes = (await response.json())
-	return episodes;
+	return episodes.results;
 }
