@@ -35,7 +35,8 @@ const NavBarStyled = styled.div`
 	.mobile-menu{
 			display: none;
 		}
-	@media screen and (max-width: 600px) {
+	@media screen and (max-width: 800px) {
+		height: 100px;
 		position: fixed;
 		background-color: black;
 		.mobile-menu{
@@ -186,6 +187,6 @@ const NavBar = () => {
 				</ul>
 			</nav>
 		</NavBarStyled>
-	)
+	);
 }
 export default NavBar;

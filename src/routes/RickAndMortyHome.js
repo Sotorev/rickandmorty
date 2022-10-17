@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 const RMStyled = styled.div`
+	padding-bottom: 100px;
 	.bg-container{
 		z-index: -1;
 		position: relative;
@@ -39,6 +40,26 @@ const RMStyled = styled.div`
 			margin-left: 10rem;
 		}
 	}
+	@media screen and (max-width:800px) {
+		
+		.bg-container{
+			background-size: cover;
+			background-position: right;
+		}
+		.intro-container{
+			flex-direction: column;
+			padding: 0 2rem;
+			.intro-text{
+				box-sizing: border-box;	
+				width: 100%;
+				
+			}
+			.vplayer{
+				margin:0;
+			}
+		}
+
+	}
 `;
 const RM = () => {
 	return (
@@ -58,8 +79,9 @@ const RM = () => {
 				<ReactPlayer
 					className="vplayer"
 					url={'https://youtu.be/C2AFf9wSAdM'}
-					// url={'https://youtu.be/EBYsx1QWF9A'}
+					// url={'https://youtu.be/EBYsx1QWF9A'}	
 					playing={true}
+					width={window.screen.width < 600 ? 400: 640}
 					loop={true}
 
 				/>

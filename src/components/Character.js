@@ -8,15 +8,16 @@ const StyledCharacter = styled.div`
 	background-color: #3c3e44;
 	border-radius: 2rem;
 	width: 600px;
-	height: 200px;
+	height: 250px;
 	display: flex;
 	align-items: center;
 	overflow: hidden;
 	
 	.image-container{
+		height: 100%;
 		width: 40%;
 		img{
-			width: 100%;
+			height: 100%;
 		}
 	}
 	.description-container{
@@ -31,9 +32,7 @@ const StyledCharacter = styled.div`
 			margin: 0;
 			font-size: 3rem;
 			color: white;
-			a{
-				cursor: pointer;
-			}
+			
 			&:hover{
 				color: rgb(255, 152, 0);
 			}
@@ -124,6 +123,11 @@ const Character = (props) => {
 					</span>
 				</div>
 				<div>
+					<span className="sub-title">Origin:</span>
+					<br />
+					<span className="location">{props.origin}</span>
+				</div>
+				<div>
 					<span className="sub-title">Last known location:</span>
 					<br />
 					<span className="location">{props.location.name}</span>
@@ -131,6 +135,6 @@ const Character = (props) => {
 
 			</div>
 		</StyledCharacter>
-	)
+	);
 }
 export default Character;

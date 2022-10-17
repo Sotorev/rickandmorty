@@ -1,20 +1,15 @@
 import { useLoaderData, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
-import Character from "../components/Character";
-import { getCharacters } from "../data";
+import Character from "./Character";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
 
-export async function loader({ params, request }) {
 
-	const url = new URL(request.url);
-	const page = url.searchParams.get("page")
-	const characters = await getCharacters(page);
-	return characters;
-}
 
 const StyledCharacters = styled.div`
 	background-color: hsl(220, 12.3%, 14.3%);
+	min-height: 100vh;
+	
 
 	@media screen and (max-width: 1254px) {
 		padding-top: 10rem;
@@ -36,7 +31,7 @@ const StyledCharacters = styled.div`
 	@media screen and (max-width: 800px){
 		.button-changer-container{
 			position: fixed;
-			z-index: 0;
+			z-index: 1;
 			top: 50px;
 			background-color: black;
 			width: 100%;
@@ -64,9 +59,8 @@ export const StyledButton = styled('button')`
 		right: 5%;
 	}
 	@media screen and (max-width: 800px){
-		z-index: 0;
-
 		position: absolute;
+		z-index: 1;
 		top: 20%;
 		border-radius: 10px;
 		width: 60px;
@@ -82,29 +76,34 @@ export const StyledButton = styled('button')`
 		
 `
 
+
+
 const Characters = () => {
-	const characters = useLoaderData();
+	const characters = useLoaderData().results;
 	const [searchParams, setSearchParams] = useSearchParams();
+
 	return (
 		<StyledCharacters>
+
 			<div className="button-changer-container">
-				{parseInt(searchParams.get("page")) > 1 &&
+				{useLoaderData().info.prev != null &&
 					<StyledButton
 						className="prev"
-						onClick={
-							() => {
-								setSearchParams({ page: parseInt(searchParams.get("page")) - 1 })
+						onClick={() => {
+								searchParams.set("page", parseInt(searchParams.get("page"))-1)
+								setSearchParams(searchParams)
 							}}
 					>
 						<FontAwesomeIcon icon={faArrowLeft} />
 					</StyledButton>
 				}
-				{parseInt(searchParams.get("page")) < 42 &&
+				{useLoaderData().info.next != null &&
 					<StyledButton
 						className="next"
 						onClick={
 							() => {
-								setSearchParams({ page: parseInt(searchParams.get("page")) + 1 })
+								searchParams.set("page", parseInt(searchParams.get("page")) + 1)
+								setSearchParams(searchParams)
 							}}
 					>
 						<FontAwesomeIcon icon={faArrowRight} />
@@ -120,10 +119,10 @@ const Characters = () => {
 					gender={character.gender}
 					location={character.location}
 					image={character.image}
-
+					origin={character.origin.name}
 				/>)}
 			</div>
 		</StyledCharacters>
-	)
+	);
 }
 export default Characters;

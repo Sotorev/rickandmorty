@@ -1,7 +1,10 @@
-export async function getCharacters(page) {
-	const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`);
-	const characters = (await response.json())
-	return characters.results;
+export async function getCharacters(query) {
+	const res = await fetch(`https://rickandmortyapi.com/api/character/?${query}`);
+	if (res.status === 404) {
+		throw new Response("Not Found", { status: 404 });
+	}
+	const characters = (await res.json())
+	return characters;
 }
 export async function getCharacter(id) {
 	const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`);

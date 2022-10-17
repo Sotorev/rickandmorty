@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Characters, {loader as charactersLoader} from './routes/Characters';
-import Locations from './routes/Locations';
 import RM from './routes/RickAndMortyHome'
-import App, {loader as rootLoader} from './routes/App';
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import Episodes, {episodesLoader} from './components/Episodes';
+import App, { loader as rootLoader } from './routes/App';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Episodes, { episodesLoader } from './components/Episodes';
+import ErrorPage from './components/ErrorPage';
+import CharactersRoot, { loader as charactersLoader } from './routes/CharactersRoot';
+import Characters from './components/Characters';
+
 
 const router = createBrowserRouter([
   {
@@ -16,17 +18,25 @@ const router = createBrowserRouter([
     children: [
       {
         path: "characters/",
-        element: <Characters />,
-        loader: charactersLoader,
+        element: <CharactersRoot />,
+        children: [
+          {
+            index: true,
+            element: <Characters />,
+            loader: charactersLoader,
+            errorElement: <ErrorPage />,
+            
+          }
+        ]
       },
-      {
-        index: true,
-        element: <RM/>
-      },
-      {
-        path: "episodes/",
-        element: <Episodes />,
-        loader: episodesLoader,
+{
+  index: true,
+    element: <RM />
+},
+{
+  path: "episodes/",
+    element: <Episodes />,
+      loader: episodesLoader,
       }
     ]
   },
@@ -35,7 +45,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
