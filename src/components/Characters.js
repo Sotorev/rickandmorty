@@ -9,10 +9,9 @@ import { faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
 const StyledCharacters = styled.div`
 	background-color: hsl(220, 12.3%, 14.3%);
 	min-height: 100vh;
-	
 
 	@media screen and (max-width: 1254px) {
-		padding-top: 10rem;
+		padding-top: 20rem;
 		.characters-container{
 			display: flex;
 			flex-direction: column;

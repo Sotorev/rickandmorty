@@ -21,9 +21,14 @@ const StyledCharactersRoot = styled('div')`
 		align-items: center;
 	}
 	@media screen and (max-width:800px) {
+		
 		position: relative;
-		top: 100px;
+		top: 200px;
 		.data-filter{
+			margin: 0;
+			width: 100%;;
+			display: flex;
+			flex-direction: column;
 			position: absolute;
 			top: 20px;
 			left: 50%;
