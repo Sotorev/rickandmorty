@@ -41,9 +41,8 @@ const StyledCharactersRoot = styled('div')`
 
 const StyledFilters = styled("div")`
 	margin: 2rem;
-	margin-right: 0;
 	display: flex;
-	width: 350px;
+	width: 500px;
 	align-items: center;
 	justify-content: space-evenly;
 	span{

@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 const StyledSearcher = styled("form")`
 	display: inline;
-	width: 100%;
+
 	input{
 		height: 40px;
 		border-radius: 2rem;
 	}
 	@media screen and (max-width: 800px){
-		  
+		width: 100%;
 		input{
 			border: none;
 			border-radius: 0%;
