@@ -27,7 +27,7 @@ export const StyledEpisodes = styled.div`
 	}
 	@media only screen and (max-width: 800px){
 		.episodes-container{
-			grid-template-columns: 400px;
+			grid-template-columns: auto;
 			justify-content: center;
 		}
 		.button-changer-container{

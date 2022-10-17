@@ -37,6 +37,9 @@ const StyledEpisode = styled('div')`
 			color: aqua;
 		}
 	}
+	@media screen and (max-width:800px){
+		width: 100%;
+	}
 `
 
 const Episode = props => {

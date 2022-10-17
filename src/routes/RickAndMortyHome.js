@@ -81,7 +81,7 @@ const RM = () => {
 					url={'https://youtu.be/C2AFf9wSAdM'}
 					// url={'https://youtu.be/EBYsx1QWF9A'}	
 					playing={true}
-					width={window.screen.width < 600 ? 400: 640}
+					width={window.screen.width < 600 ? 390: 640}
 					loop={true}
 
 				/>
