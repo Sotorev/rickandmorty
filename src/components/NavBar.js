@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const NavBarStyled = styled.div`
-	width: 100%;
+	width: 100vw;
 	display: flex;
 	align-items: center;
 	height: 50px;
@@ -34,9 +34,11 @@ const NavBarStyled = styled.div`
 			display: none;
 		}
 	@media screen and (max-width: 800px) {
+		position: fixed;
+		top: 0;
+		/* width: 100%; */
 		z-index: 1;
 		height: 100px;
-		position: fixed;
 		background-color: black;
 		.mobile-menu{
 			cursor: pointer;

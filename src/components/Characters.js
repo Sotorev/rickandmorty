@@ -32,6 +32,7 @@ const StyledCharacters = styled.div`
 			position: fixed;
 			z-index: 0;
 			top: 100px;
+			
 			background-color: black;
 			width: 100%;
 			height: 50px;

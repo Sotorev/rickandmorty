@@ -24,7 +24,7 @@ const StyledCharactersRoot = styled('div')`
 		
 		position: relative;
 		top: 200px;
-		.data-filter{
+		.data-filter{	
 			margin: 0;
 			width: 100%;;
 			display: flex;
@@ -103,6 +103,8 @@ const StyledFilters = styled("div")`
 		}
 	}
 	@media screen and (max-width:800px) {
+		width: 100%;
+		margin: 0;
 		span{
 			display: none;
 		}
