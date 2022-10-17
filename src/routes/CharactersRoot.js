@@ -36,6 +36,7 @@ const StyledCharactersRoot = styled('div')`
 
 const StyledFilters = styled("div")`
 	margin: 2rem;
+	margin-right: 0;
 	display: flex;
 	width: 350px;
 	align-items: center;
@@ -95,6 +96,17 @@ const StyledFilters = styled("div")`
 				color: orange;
 			}
 			
+		}
+	}
+	@media screen and (max-width:800px) {
+		span{
+			display: none;
+		}
+		.gender-list{
+			width: 200px;
+		}
+		.status-list{
+			width: 150px;
 		}
 	}
 `

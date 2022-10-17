@@ -31,8 +31,8 @@ const StyledCharacters = styled.div`
 	@media screen and (max-width: 800px){
 		.button-changer-container{
 			position: fixed;
-			z-index: 1;
-			top: 50px;
+			z-index: 0;
+			top: 100px;
 			background-color: black;
 			width: 100%;
 			height: 50px;

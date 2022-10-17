@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const NavBarStyled = styled.div`
-	z-index: 1;
-
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -36,6 +34,7 @@ const NavBarStyled = styled.div`
 			display: none;
 		}
 	@media screen and (max-width: 800px) {
+		z-index: 1;
 		height: 100px;
 		position: fixed;
 		background-color: black;
@@ -106,6 +105,7 @@ const NavBarStyled = styled.div`
 			
 		}
 		nav{
+			z-index: 1;
 			transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1) ;
 			display: block;
 			position: fixed;

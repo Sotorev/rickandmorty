@@ -6,6 +6,11 @@ const StyledSearcher = styled("form")`
 		height: 40px;
 		border-radius: 2rem;
 	}
+	@media screen and (max-width: 800px){
+		input{
+			width: 100px;
+		}
+	}
 `
 
 
