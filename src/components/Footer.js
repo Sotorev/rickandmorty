@@ -13,6 +13,7 @@ const StyledFooter = styled('div')`
 	justify-content: space-evenly;
 	a{
 		text-decoration: none;
+		color: white;
 		&:visited{
 			color: white;
 		}
