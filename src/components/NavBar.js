@@ -141,7 +141,7 @@ const NavBarStyled = styled.div`
 	}
 `
 const StyledLink = styled(Link)`
-	color: ${props => props.color};
+	color: black;
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: clamp(1rem, 1.5rem, 5rem);
@@ -150,6 +150,9 @@ const StyledLink = styled(Link)`
 	}
 	margin: 10px;
 	text-decoration: none;
+	@media screen and (max-width:800px) {
+		color: white;
+	}
 `
 const NavBar = () => {
 	const [isActiveMobileMenu, setIsActiveMenu] = useState(false);
@@ -172,12 +175,12 @@ const NavBar = () => {
 			<nav className={!isActiveMobileMenu ? "hide-nav" : undefined}>
 				<ul>
 					<li>
-						<StyledLink onClick={() => setIsActiveMenu(false)} color={isActiveMobileMenu ? "white" : "black"} to={"/"} >
+						<StyledLink onClick={() => setIsActiveMenu(false)} to={"/"} >
 							Home
 						</StyledLink>
 					</li>
 					<li>
-						<StyledLink onClick={() => setIsActiveMenu(false)} color={isActiveMobileMenu ? "white" : "black"} to={"characters?page=1"}>
+						<StyledLink onClick={() => setIsActiveMenu(false)}  to={"characters?page=1"}>
 							Characters
 						</StyledLink>
 					</li>
