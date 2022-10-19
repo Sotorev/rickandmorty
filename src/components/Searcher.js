@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Form } from "react-router-dom";
 
-const StyledSearcher = styled("form")`
+const StyledSearcher = styled(Form)`
 	display: inline;
 
 	input{
@@ -23,7 +24,7 @@ const Searcher = ({ searchParams, handleChange }) => {
 	
 
 	return (
-		<StyledSearcher id="search-form" role="search" className="">
+		<StyledSearcher id="search-form" role="search">
 			<input
 				aria-label="Search contacts"
 				placeholder="Search"
@@ -31,7 +32,15 @@ const Searcher = ({ searchParams, handleChange }) => {
 				name="name"
 				// value={searchParams.get("name")}
 				onChange={handleChange}
+				onKeyDown={(event) => { if (event.key === "Enter") event.preventDefault() } }
 			/>
+			{/* <button
+				type="search"
+				aria-label="Search"
+			>
+				Search
+			</button> */}
+
 		</StyledSearcher>
 	);
 }
