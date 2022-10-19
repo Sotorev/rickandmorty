@@ -14,7 +14,8 @@ export const episodesLoader = async ({ request }) => {
 }
 export const StyledEpisodes = styled.div`
 	/* .button-changer-container{display:none} */
-	padding: 110px 0;
+	padding-top: 200px;
+	padding-bottom: 100px;
 	background-color: hsl(220, 12.3%, 14.3%);
  	box-sizing: border-box;
 	width: 100%;
@@ -33,7 +34,7 @@ export const StyledEpisodes = styled.div`
 		.button-changer-container{
 			position: fixed;
 			z-index: 0;
-			top: 50px;
+			top: 100px;
 			background-color: black;
 			width: 100%;
 			height: 50px;
