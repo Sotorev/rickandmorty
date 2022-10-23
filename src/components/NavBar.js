@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const NavBarStyled = styled.div`
-	width: 100vw;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	height: 50px;
